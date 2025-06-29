@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <video id="webcam" autoplay playsinline width="300" height="225"></video>
+  <script>
+    async function start() {
+      const video = document.getElementById('webcam');
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (e) {
+        alert('فشل تشغيل الكاميرا: ' + e.message);
+      }
+    }
+    start();
+  </script>
+</body>
+</html>
